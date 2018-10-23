@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UCDLive</string>
+    <string name="map_view">Map View</string>
 </resources>

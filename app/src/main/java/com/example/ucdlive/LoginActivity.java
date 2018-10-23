@@ -1,5 +1,6 @@
 package com.example.ucdlive;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,11 @@ public class LoginActivity extends AppCompatActivity {
 
         ProgressBar progress = (ProgressBar)findViewById(R.id.progress_bar);
         progress.setVisibility(View.INVISIBLE);
+
+        DBHelper db = new DBHelper(this);
+        if(db.existsUser()){
+            this.goToMainActivity();
+        }
     }
 
     @Override
@@ -43,7 +49,12 @@ public class LoginActivity extends AppCompatActivity {
         String username = username_c.getText().toString();
         String password = password_c.getText().toString();
 
-        // TODO: check firebase
+        // TODO: check firebase if authorized
+
+        DBHelper db = new DBHelper(this);
+        System.out.println("USERNAME: |" + Integer.parseInt(username) + "|");
+        db.insertUser(Integer.parseInt(username));
+
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -55,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }, 3000);
     }
-
 
     public boolean validate() {
         boolean valid = true;
@@ -80,9 +90,15 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         Toast.makeText(getBaseContext(), "Logged in", Toast.LENGTH_LONG).show();
+        this.goToMainActivity();
     }
 
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Error", Toast.LENGTH_LONG).show();
+    }
+
+    private void goToMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
