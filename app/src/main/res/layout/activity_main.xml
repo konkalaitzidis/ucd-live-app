@@ -22,7 +22,7 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <fragment
-        android:id="@+id/events"
+        android:id="@+id/events_fragment"
         android:name="com.example.ucdlive.EventsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

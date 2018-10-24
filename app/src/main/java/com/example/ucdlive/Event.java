@@ -6,12 +6,14 @@ public class Event {
 
     private float id;
     private String name;
+    private String brief;
     private String description;
     private LocalDateTime date;
 
-    public Event(float id, String name, String description, LocalDateTime date){
+    public Event(float id, String name, String brief, String description, LocalDateTime date){
         this.id = id;
         this.name = name;
+        this.brief = brief;
         this.description = description;
         this.date = date;
     }
@@ -35,5 +37,9 @@ public class Event {
 
     public LocalDateTime getDate() {
         return date;
+    }
+
+    public String getBrief() {
+        return brief;
     }
 }

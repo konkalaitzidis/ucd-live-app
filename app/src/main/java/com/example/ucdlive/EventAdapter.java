@@ -1,6 +1,10 @@
 package com.example.ucdlive;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,57 +12,31 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class EventAdapter extends ArrayAdapter<Event> {
+public class EventAdapter extends ArrayAdapter<Event>{
 
-    public ArrayList<Event> events;
+    private Context mContext;
+    private List<Event> events;
 
-    public EventAdapter(Context context, int textViewResourceId, ArrayList<Event> events) {
-        super(context, textViewResourceId);
-        this.events = events;
+    public EventAdapter(Context context, ArrayList<Event> list) {
+        super(context, 0 , list);
+        mContext = context;
+        events = list;
     }
-
+    
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        View v = convertView;
-        if (v == null) {
-            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.event, null);
-        }
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View listItem = convertView;
+        if(listItem == null)
+            listItem = LayoutInflater.from(mContext).inflate(R.layout.event,parent,false);
 
-        Event i = this.events.get(position);
+        Event currentEvent = this.events.get(position);
 
-        if (i != null) {
-            TextView tt = (TextView) v.findViewById(R.id.toptext);
-            TextView ttd = (TextView) v.findViewById(R.id.toptextdata);
-            TextView mt = (TextView) v.findViewById(R.id.middletext);
-            TextView mtd = (TextView) v.findViewById(R.id.middletextdata);
-            TextView bt = (TextView) v.findViewById(R.id.bottomtext);
-            TextView btd = (TextView) v.findViewById(R.id.desctext);
+        TextView name = (TextView) listItem.findViewById(R.id.event_name);
+        name.setText(currentEvent.getName());
 
-            // check to see if each individual textview is null.
-            // if not, assign some text!
-            if (tt != null){
-                tt.setText("Name: ");
-            }
-            if (ttd != null){
-                ttd.setText(i.getName());
-            }
-            if (mt != null){
-                mt.setText("Price: ");
-            }
-            if (mtd != null){
-                mtd.setText("$ 1000");
-            }
-            if (bt != null){
-                bt.setText("Details: ");
-            }
-            if (btd != null){
-                btd.setText(i.getDescription());
-            }
-        }
-
-        return v;
-
+        return listItem;
     }
+
 }
