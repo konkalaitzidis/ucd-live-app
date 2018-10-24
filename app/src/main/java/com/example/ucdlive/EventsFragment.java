@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
+ 
 public class EventsFragment extends ListFragment implements AdapterView.OnItemClickListener {
 
     @Override
