@@ -5,6 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
+import java.time.LocalDate;
 
 public class DBHelper  extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "UCDLive.db";
@@ -17,7 +21,7 @@ public class DBHelper  extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table user (username integer primary key)");
+        db.execSQL("create table user (ID integer primary key , name varchar, surname varchar, birthday varchar)");
     }
 
     @Override
@@ -26,10 +30,13 @@ public class DBHelper  extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertUser(int username){
+    public boolean insertUser(User u){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
+        contentValues.put("ID", u.getID());
+        contentValues.put("name", u.getName());
+        contentValues.put("surname", u.getSurname());
+        contentValues.put("birthday", u.getBirthday().toString());
         db.insert("user", null, contentValues);
         return true;
     }
@@ -42,6 +49,25 @@ public class DBHelper  extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "select * from user", null );
         return res.getCount() == 1;
+    }
+
+    /**
+     * @return null if there isn't a user, else return the username of current user
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public User getCurrentUser(){
+        if(existsUser()){
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor res = db.rawQuery( "select * from user", null );
+            if (res.moveToFirst()){
+                int IDuser = res.getInt(res.getColumnIndex("ID"));
+                String name = res.getString(res.getColumnIndex("name"));
+                String surname = res.getString(res.getColumnIndex("surname"));
+                LocalDate birthday = LocalDate.parse(res.getString(res.getColumnIndex("surname")));
+                return new User(IDuser, name, surname, birthday);
+            }
+        }
+        return null;
     }
 
 }

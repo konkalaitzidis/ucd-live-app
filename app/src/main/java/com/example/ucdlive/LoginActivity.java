@@ -1,6 +1,8 @@
 package com.example.ucdlive;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import java.time.LocalDate;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "Operation canceled", Toast.LENGTH_LONG).show();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void loginHandler(View v) {
         if (!validate()) {
             onLoginFailed();
@@ -53,8 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
         DBHelper db = new DBHelper(this);
         System.out.println("USERNAME: |" + Integer.parseInt(username) + "|");
-        db.insertUser(Integer.parseInt(username));
-
+        db.insertUser(new User(1, "Lorenzo", "Gazzella", LocalDate.now())); // TODO
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

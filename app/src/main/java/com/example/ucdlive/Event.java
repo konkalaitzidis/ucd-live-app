@@ -1,8 +1,9 @@
 package com.example.ucdlive;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Event {
+public class Event implements Serializable{
 
     private float id;
     private String name;
