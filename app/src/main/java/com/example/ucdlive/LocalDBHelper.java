@@ -10,12 +10,12 @@ import android.support.annotation.RequiresApi;
 
 import java.time.LocalDate;
 
-public class DBHelper  extends SQLiteOpenHelper {
+public class LocalDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "UCDLive.db";
     public static final String TABLE_NAME = "user";
     public static final String USER_USERNAME = "username";
 
-    public DBHelper(Context context) {
+    public LocalDBHelper(Context context) {
         super(context, DATABASE_NAME , null, 2);
     }
 
@@ -33,7 +33,6 @@ public class DBHelper  extends SQLiteOpenHelper {
     public boolean insertUser(User u){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("ID", u.getID());
         contentValues.put("name", u.getName());
         contentValues.put("surname", u.getSurname());
         contentValues.put("birthday", u.getBirthday().toString());
@@ -64,7 +63,7 @@ public class DBHelper  extends SQLiteOpenHelper {
                 String name = res.getString(res.getColumnIndex("name"));
                 String surname = res.getString(res.getColumnIndex("surname"));
                 LocalDate birthday = LocalDate.parse(res.getString(res.getColumnIndex("surname")));
-                return new User(IDuser, name, surname, birthday);
+                return new User(name, surname, birthday);
             }
         }
         return null;

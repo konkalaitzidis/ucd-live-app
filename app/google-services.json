@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "698041080625",
+    "firebase_url": "https://ucdliveapp.firebaseio.com",
+    "project_id": "ucdliveapp",
+    "storage_bucket": "ucdliveapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698041080625:android:19f39571cde8bc89",
+        "android_client_info": {
+          "package_name": "com.example.ucdlive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698041080625-7hc1pvmkba0mi0v28q3anema2eqeukls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ucdlive",
+            "certificate_hash": "d77beec7099de8b4a74cd8a3a8f48ec798b09b0f"
+          }
+        },
+        {
+          "client_id": "698041080625-roucklkgbuo59oamqu0qniar0nm3m34s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJE6hBhuseygzRBXsVABXHqNnbDHjDlCM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698041080625-roucklkgbuo59oamqu0qniar0nm3m34s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,7 +13,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        DBHelper db = new DBHelper(this);
+        LocalDBHelper db = new LocalDBHelper(this);
         User user = db.getCurrentUser();
         if(user != null){
             // TODO

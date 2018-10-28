@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         ProgressBar progress = (ProgressBar)findViewById(R.id.progress_bar);
         progress.setVisibility(View.INVISIBLE);
 
-        DBHelper db = new DBHelper(this);
+        LocalDBHelper db = new LocalDBHelper(this);
         if(db.existsUser()){
             this.goToMainActivity();
         }
@@ -56,9 +56,9 @@ public class LoginActivity extends AppCompatActivity {
 
         // TODO: check firebase if authorized
 
-        DBHelper db = new DBHelper(this);
+        LocalDBHelper db = new LocalDBHelper(this);
         System.out.println("USERNAME: |" + Integer.parseInt(username) + "|");
-        db.insertUser(new User(1, "Lorenzo", "Gazzella", LocalDate.now())); // TODO
+        db.insertUser(new User("Lorenzo", "Gazzella", LocalDate.now())); // TODO
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

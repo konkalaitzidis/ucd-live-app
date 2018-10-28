@@ -6,25 +6,14 @@ import java.time.LocalDate;
 
 public class User {
 
-    private int ID;
     private String name;
     private String surname;
     private LocalDate birthday;
 
-    public User(int ID, String name, String surname, LocalDate birthday) {
-        this.ID = ID;
+    public User(String name, String surname, LocalDate birthday) {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
-    }
-
-    public int getID() {
-
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getName() {

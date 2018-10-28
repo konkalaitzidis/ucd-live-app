@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class EventsFragment extends ListFragment implements AdapterView.OnItemClickListener {
 
@@ -28,14 +29,6 @@ public class EventsFragment extends ListFragment implements AdapterView.OnItemCl
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ListView listView = getListView();
-        events = new ArrayList<>();
-        for(int i=0; i<20; i++){
-            events.add(new Event(i, "Name " + i, "Brief " +i, "Desctiption " + i, LocalDateTime.now()));
-        }
-
-        EventAdapter adapter = new EventAdapter(getContext(), events);
-        listView.setAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
 
