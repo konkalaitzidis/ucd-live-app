@@ -1,14 +1,39 @@
-# UCDLive_APP 
+# UCDLive
 
+**University College Dublin – Practical Android Programming Module**  
+**Sep 2018 – Dec 2018**  
 
-UCDLive
+## Project Overview
 
-Sep 2018 – Dec 2018
+UCDLive is a mobile application designed to help students at University College Dublin (UCD) discover and engage with extracurricular events and student societies on campus. With the increasing number of student societies each year, students often miss out on events that match their interests and can help further their academic or career success. UCDLive aims to solve this problem by providing a platform that allows students to find relevant events tailored to their interests and needs.
 
-University College Dublin - Practical Android Programming Module
+This project was developed as part of the Practical Android Programming module in the Computer Science department at UCD.
 
-Semester-long Project description:
-Campus life at the University College of Dublin is evolving every year. The number of student societies that are newly developed on a year by year basis is only increasing. Students of all kind can expect to find extracurriculars to get evolved with but often find themselves missing out on the events that they would really enjoy and benefit from not to mention events that match their interests and help them achieve higher academic or even career success. The UCDLive application developed by Chris Horgan, Lorenzo Gazella, and Kostas Kalaitzidis on the grounds of the Practical Android Programming module at the Computer Science department of UCD aims to provide a solution to this issue that faces most students on campus.
+## Team Members
+- **Chris Horgan**
+- **Lorenzo Gazella**
+- **Kostas Kalaitzidis**
 
-See paper at the link below:
-https://bit.ly/2RcejnH 
+## Features
+- Discover upcoming student society events based on interests and preferences.
+- Get event notifications and reminders.
+- Search events by type (academic, career, social, etc.).
+- Easily RSVP to events and track attendance.
+
+## Technologies Used
+- **Android Studio**
+- **Java**
+- **Firebase** (for backend services)
+- **Google Maps API**
+
+## Paper
+For more detailed information, refer to the project paper available [here](https://bit.ly/2RcejnH).
+
+## License
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+- Special thanks to University College Dublin for providing the opportunity to develop this project.
+- Thanks to the Practical Android Programming module instructors for their guidance.
+- Most importantly Chris and Lorenzo for the great collaboration. 
+
